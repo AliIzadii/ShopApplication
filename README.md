@@ -22,3 +22,24 @@ This is a Flutter-based shopping application, designed to offer a seamless shopp
 
 - **Support**: A dedicated support page for user assistance.
 
+## Getting Started
+
+To run this project, you will need to have Flutter installed on your local machine. If you don't have Flutter installed, follow the [Flutter installation guide](https://flutter.dev/docs/get-started/install).
+
+## Project Structure
+
+- `lib/`: Contains the main source code for the Flutter application.
+- `assets/`: Contains any images, fonts, and other assets used in the application.
+- `pubspec.yaml`: Manages the Flutter project's dependencies.
+
+## How To Use
+
+1. Clone The Repository
+
+2. Get the dependencies: Run `flutter pub get`
+
+3. Run the application: Run `flutter run`
+
+## Contact
+
+For any questions or feedback, please contact [Ali Izadi](mailto:ali.izadi.ce@gmail.com).
