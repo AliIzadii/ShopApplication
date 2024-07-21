@@ -5,14 +5,14 @@ This is a Flutter-based shopping application, designed to offer a seamless shopp
 ## Features
 
 - **Authentication**: 
-  - Users can register and log in using Firebase Authentication.
+  - Users can register and log in using **Firebase** Authentication.
   - Handles various authentication errors, such as incorrect passwords, unregistered email, and more.
   - Password reset functionality via email.
 
 - **Product Management**:
   - **Slider**: Display top products, discounts, or advertisements.
   - **Search**: Perform detailed searches across all products.
-  - **Product Management**: Add, delete, and edit products through an integrated API. Changes are instantly reflected in the app.
+  - **Product Management**: Add, delete, and edit products through an integrated **API**. Changes are instantly reflected in the app.
   - **Category View**: Browse products by category.
 
 - **User Profile**:
