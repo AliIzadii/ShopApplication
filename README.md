@@ -1,4 +1,4 @@
-# Flutter Shop App
+# Shop Application
 
 This is a Flutter-based shopping application, designed to offer a seamless shopping experience with features including Firebase authentication, dynamic product management, and comprehensive search functionality.
 
