@@ -8,16 +8,6 @@ class supportPage extends StatefulWidget {
 }
 
 class _supportPageState extends State<supportPage> {
-  List<bool> expandedList = [false, false, false, false, false, false, false];
-  List<double> _containerHeights = [50.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0];
-
-  void _toggleContainer(int index) {
-    setState(() {
-      expandedList[index] = !expandedList[index];
-      _containerHeights[index] = expandedList[index] ? 180.0 : 50.0;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     double heightScreen = MediaQuery.of(context).size.height;
@@ -137,62 +127,46 @@ class _supportPageState extends State<supportPage> {
     );
   }
 
-  Stack supportOption(double widthScreen, BuildContext context, String mainText,
+  Container supportOption(double widthScreen, BuildContext context, String mainText,
       String firstIssue, String secondIssue, int index) {
-    return Stack(
-      children: [
-        AnimatedContainer(
-          duration: Duration(milliseconds: 500),
-          width: widthScreen * 0.85,
-          height: _containerHeights[index],
-          decoration: BoxDecoration(
-              color: Color.fromARGB(203, 48, 130, 197),
-              borderRadius: BorderRadius.circular(10)),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Container(
-                alignment: Alignment.center,
-                height: 50,
-                color: Colors.transparent,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 15.0),
-                      child: Text(
-                        mainText,
-                        style: TextStyle(
-                            color: Colors.white, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    IconButton(
-                      icon: Icon(Icons.arrow_downward_outlined,
-                          color: Colors.white),
-                      onPressed: () {
-                        _toggleContainer(index);
-                      },
-                    ),
-                  ],
-                ),
-              ),
-              if (expandedList[index])
-                Expanded(
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.vertical,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(children: [
-                        iconButton(firstIssue, context),
-                        iconButton(secondIssue, context),
-                      ]),
-                    ),
-                  ),
-                ),
-            ],
-          ),
+    return Container(
+      width: widthScreen * 0.85,
+      decoration: BoxDecoration(
+        color: Color.fromARGB(203, 48, 130, 197),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Theme(
+        data: Theme.of(context).copyWith(
+          dividerColor: Colors.transparent,
+          focusColor: Colors.transparent,
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
         ),
-      ],
+        child: ExpansionTile(
+          title: Text(
+            mainText,
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          trailing: Icon(
+            Icons.arrow_downward_outlined,
+            color: Colors.white,
+          ),
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  iconButton(firstIssue, context),
+                  iconButton(secondIssue, context),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 
